@@ -24,7 +24,7 @@ jobs:
           - build_variant: "mt7621-usb-1"
             targets: "JDCLOUD-RE-SP-01B"          
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v2
       - name: Prepare environment
         run: |
           sudo apt update
@@ -63,7 +63,7 @@ jobs:
           echo "::warning file=wetransfer.com::$(cat wetransfer.log | grep https)"
       - name: Upload images to Releases
         if: ${{ github.event_name == 'release' && success() }}
-        uses: svenstaro/upload-release-action@2.2.0
+        uses: svenstaro/upload-release-action@v4
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: ${{ env.images_dir }}/*.trx
