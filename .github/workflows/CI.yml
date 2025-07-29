@@ -24,7 +24,7 @@ jobs:
           - build_variant: "mt7621-usb-1"
             targets: "JDCLOUD-RE-SP-01B"          
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v3
       - name: Prepare environment
         run: |
           sudo apt update
